@@ -29,5 +29,4 @@ describe('ToDoList', () => {
     todoItem = new ToDoList();
   });
 
-
 });
