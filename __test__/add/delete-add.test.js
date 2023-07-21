@@ -42,4 +42,13 @@ test('add description', () => {
     expect(listElement.textContent.trim()).toBe(Taskdescription);
     expect(listElement.classList).not.toContain('completed');
   });
+test('remove item from list', () => {
+    todoItem.removeBook(0);
+    expect(todoItem.collection).toEqual([]);
+    expect(todoItem.removeBook(0)).toBeFalsy();
+    expect(window.localStorage.setItem).toHaveBeenCalledWith('taskCollection', JSON.stringify(todoItem.collection));
+    // removed dom elements
+    const listElement = document.getElementById('to-do-list').firstElementChild;
+    expect(listElement).toBe(null);
+  });
 });
