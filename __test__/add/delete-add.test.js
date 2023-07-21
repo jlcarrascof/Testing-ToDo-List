@@ -28,7 +28,8 @@ describe('ToDoList', () => {
     // create a new ToDoList instance
     todoItem = new ToDoList();
   });
-test('add description', () => {
+
+  test('add description', () => {
     todoItem.addBook(Taskdescription);
     const listElement = document.getElementById('to-do-list').firstElementChild;
     expect(todoItem.collection).toContainEqual({
@@ -42,7 +43,8 @@ test('add description', () => {
     expect(listElement.textContent.trim()).toBe(Taskdescription);
     expect(listElement.classList).not.toContain('completed');
   });
-test('remove item from list', () => {
+
+  test('remove item from list', () => {
     todoItem.removeBook(0);
     expect(todoItem.collection).toEqual([]);
     expect(todoItem.removeBook(0)).toBeFalsy();
