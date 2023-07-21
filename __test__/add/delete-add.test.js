@@ -28,5 +28,18 @@ describe('ToDoList', () => {
     // create a new ToDoList instance
     todoItem = new ToDoList();
   });
-
+test('add description', () => {
+    todoItem.addBook(Taskdescription);
+    const listElement = document.getElementById('to-do-list').firstElementChild;
+    expect(todoItem.collection).toContainEqual({
+      description: Taskdescription,
+      completed: false,
+      index: expect.any(Number),
+    });
+    expect(todoItem.collection.length).toBeGreaterThan(0);
+    expect(window.localStorage.setItem).toHaveBeenCalledWith('taskCollection', JSON.stringify(todoItem.collection));
+    expect(listElement.tagName).toBe('LI');
+    expect(listElement.textContent.trim()).toBe(Taskdescription);
+    expect(listElement.classList).not.toContain('completed');
+  });
 });
