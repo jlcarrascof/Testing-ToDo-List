@@ -119,16 +119,23 @@ export class ToDoList {
     });
   };
 
-   updateLocalStorage = () => {
-     localStorage.setItem('taskCollection', JSON.stringify(this.collection));
-   }
+  updateLocalStorage = () => {
+    localStorage.setItem('taskCollection', JSON.stringify(this.collection));
+  }
 
-   updateIndex() {
-     this.collection.forEach((element, index) => {
-       element.index = index + 1;
-     });
-     return this.collection.length + 1;
-   }
+  clearAll = () => {
+   this.collection = this.collection.filter((task) => !task.completed);
+   this.updateLocalStorage();
+   this.updateIndex();
+   this.renderTasks();
+  }
+
+  updateIndex() {
+    this.collection.forEach((element, index) => {
+      element.index = index + 1;
+    });
+    return this.collection.length + 1;
+  }
 }
 
 export default ToDoList;
