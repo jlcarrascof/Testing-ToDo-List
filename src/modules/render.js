@@ -124,10 +124,10 @@ export class ToDoList {
   }
 
   clearAll = () => {
-   this.collection = this.collection.filter((task) => !task.completed);
-   this.updateLocalStorage();
-   this.updateIndex();
-   this.renderTasks();
+    this.collection = this.collection.filter((task) => !task.completed);
+    this.updateLocalStorage();
+    this.updateIndex();
+    this.renderTasks();
   }
 
   updateIndex() {

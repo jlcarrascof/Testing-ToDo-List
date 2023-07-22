@@ -78,5 +78,4 @@ describe('ToDoList', () => {
     expect(todoItem.collection[0].description).toBe('Task 1');
     expect(todoItem.collection.length).toBe(2);
   });
-
 });
