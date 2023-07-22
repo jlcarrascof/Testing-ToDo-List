@@ -53,4 +53,29 @@ describe('ToDoList', () => {
     const listElement = document.getElementById('to-do-list').firstElementChild;
     expect(listElement).toBe(null);
   });
+
+  test('edit a task', () => {
+    todoItem.addBook('Task 1');
+    todoItem.addBook('Task 1');
+    const index = 1;
+    const description = 'new list';
+    todoItem.editBook(index, description);
+    expect(todoItem.collection[1].description).toBe('new list');
+  });
+
+  test('update completed status', () => {
+    todoItem.addBook('Task 1');
+    todoItem.addBook('Task 1');
+    todoItem.collection[0].completed = true;
+    expect(todoItem.collection[0].completed).toBe(true);
+  });
+
+  test('clear All', () => {
+    todoItem.addBook('Task 1');
+    todoItem.addBook('Task 2');
+    todoItem.collection[0].completed = true;
+    todoItem.clearAll();
+    expect(todoItem.collection[0].description).toBe('Task 1');
+    expect(todoItem.collection.length).toBe(2);
+  });
 });
