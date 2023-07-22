@@ -62,4 +62,11 @@ test('edit a task', () => {
     todoItem.editBook(index, description);
     expect(todoItem.collection[1].description).toBe('new list');
   });
+
+test('update completed status', () => {
+    todoItem.addBook('Task 1');
+    todoItem.addBook('Task 1');
+    todoItem.collection[0].completed = true;
+    expect(todoItem.collection[0].completed).toBe(true);
+  });
 });
