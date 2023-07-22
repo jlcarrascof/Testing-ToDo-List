@@ -53,4 +53,13 @@ describe('ToDoList', () => {
     const listElement = document.getElementById('to-do-list').firstElementChild;
     expect(listElement).toBe(null);
   });
+
+test('edit a task', () => {
+    todoItem.addBook('Task 1');
+    todoItem.addBook('Task 1');
+    const index = 1;
+    const description = 'new list';
+    todoItem.editBook(index, description);
+    expect(todoItem.collection[1].description).toBe('new list');
+  });
 });
